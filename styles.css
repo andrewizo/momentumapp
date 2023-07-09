@@ -400,9 +400,10 @@ label {
     font-style: italic;
     color: white;
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-}
-#randomize-button, #custom-quote-wrapper, #custom-quote-wrapper.show {
+    font-size: 20px;
+  }
+  
+  #randomize-button, #custom-quote-wrapper, #custom-quote-wrapper.show {
     width: 10%;
     display: flex;
     flex-direction: column;
@@ -413,16 +414,60 @@ label {
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
-    background-color: rgba(0, 0, 0, 0); /* Set the background color to fully transparent */
-    border: none; /* Remove any border */
-    padding: 0; /* Remove any padding */
-    cursor: pointer; /* Add pointer cursor */
-    transition: background-color 0.3s; /* Add smooth transition for background-color */
-}
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #randomize-button:hover, #quote-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  
+  #quote-button {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 100%;
+    left: 7%;
+    font-weight: 900;
+    font-style: italic;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-#randomize-button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
-}
+  #add-quote {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 100%;
+    left: 22%;
+    font-weight: 900;
+    font-style: italic;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #add-quote:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
 
 /* //ToDo */
 

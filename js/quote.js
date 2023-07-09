@@ -1,45 +1,48 @@
-const quoteContainer = document.querySelector('.quote-container');
-const quoteText = document.querySelector('.quote-text');
-const quoteAuthor = document.querySelector('.quote-author');
-const randomizeButton = document.querySelector('#randomize-button');
-const customQuoteWrapper = document.querySelector('#custom-quote-wrapper');
-const addCustomQuoteButton = document.querySelector('#add-custom-quote-button');
-const customQuoteForm = document.querySelector('#custom-quote-form');
-const customQuoteInput = document.querySelector('#custom-quote-input');
-const customAuthorInput = document.querySelector('#custom-author-input');
+const quoteArray = [
+  "“The only way to do great work is to love what you do.”\n— Steve Jobs",
+  "“Believe you can and you're halfway there.”\n— Theodore Roosevelt",
+  "“Success usually comes to those who are too busy to be looking for it.”\n— Henry David Thoreau",
+  "“The future belongs to those who believe in the beauty of their dreams.”\n— Eleanor Roosevelt",
+  "“In the middle of difficulty lies opportunity.”\n— Albert Einstein",
+  "“The best way to predict the future is to create it.”\n— Peter Drucker",
+  "“Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.”\n— Albert Schweitzer",
+  "“The only limit to our realization of tomorrow will be our doubts of today.”\n— Franklin D. Roosevelt",
+  "“Your time is limited, don't waste it living someone else's life.”\n— Steve Jobs",
+  "“Don't watch the clock; do what it does. Keep going.”\n— Sam Levenson"
+];
 
-randomizeButton.addEventListener('click', displayRandomQuote);
-addCustomQuoteButton.addEventListener('click', toggleCustomQuoteForm);
-customQuoteForm.addEventListener('submit', addCustomQuote);
 
-function displayRandomQuote() {
-  fetch('https://api.quotable.io/random')
-    .then(response => response.json())
-    .then(data => {
-      quoteText.innerText = `"${data.content}"`
-      quoteAuthor.innerText = `- ${data.author}`
-    })
+let localQuotes = JSON.parse(localStorage.getItem('quotes'));
+
+if (!localQuotes) {
+  localStorage.setItem('quotes', JSON.stringify(quoteArray));
+  localQuotes = JSON.parse(localStorage.getItem('quotes'));
 }
 
-function toggleCustomQuoteForm() {
-  customQuoteWrapper.classList.toggle('show');
-}
-
-function addCustomQuote(event) {
-  event.preventDefault();
-  const customQuote = customQuoteInput.value;
-  const customAuthor = customAuthorInput.value;
-
-  if (customQuote && customAuthor) {
-    const customQuoteElement = document.createElement('div');
-    customQuoteElement.innerText = `"${customQuote}" - ${customAuthor}`;
-    quoteContainer.appendChild(customQuoteElement);
-
-    customQuoteInput.value = '';
-    customAuthorInput.value = '';
-
-    toggleCustomQuoteForm();
+function addQuote() {
+  let newQuote = prompt("Enter the new quote:");
+  if (newQuote != null) {
+    localQuotes.push(newQuote);
   }
+  setLocalStorage(localQuotes);
+  fadeOut(document.querySelector("#quote"));
+  document.querySelector("#quote").innerHTML = localQuotes[localQuotes.length - 1];
+  fadeIn(document.querySelector("#quote"));
 }
 
-displayRandomQuote();
+function setLocalStorage(localQuotes) {
+  localStorage.setItem('quotes', JSON.stringify(localQuotes));
+}
+
+const setQuote = () => {
+  const storedQuotes = JSON.parse(localStorage.getItem('quotes'));
+
+  let seed = Math.floor(Math.random() * storedQuotes.length);
+  let quote = storedQuotes[seed];
+  let quoteParagraph = document.createElement("p");
+
+  document.querySelector("#quote").innerHTML = quote;
+}
+
+document.querySelector("#quote-button").addEventListener("click", setQuote);
+document.querySelector("#add-quote").addEventListener("click", addQuote);
