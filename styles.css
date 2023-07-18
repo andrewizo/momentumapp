@@ -549,7 +549,7 @@ header .input-section {
     cursor: pointer;
     display: flex;
     align-items: center;
-    background-color: rgb(234, 159, 93);
+    background-color: rgba(7, 7, 7, 0.961);
     border: none;
     border-radius: 30px;
     height: 35px;
@@ -564,7 +564,7 @@ header .input-section {
 .delete-all-btn {
     color: white;
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(234, 159, 93);
+    background-color: rgb(11, 11, 11);
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -574,7 +574,7 @@ header .input-section {
 }
 
 .add-btn:hover, .delete-all-btn:hover{
-    background-color: rgb(185, 122, 67);
+    background-color: rgb(57, 57, 57);
 }
 
 .todos-list {
@@ -632,15 +632,15 @@ header .input-section {
 }
 
 .check-btn {
-    background-color: rgb(69, 178, 69);
+    background-color: rgb(8, 8, 8);
 }
 
 .edit-btn {
-    background-color: #4545b8;
+    background-color: #070707;
 }
 
 .delete-btn {
-    background-color: #cf3737;
+    background-color: #080808;
 }
 
 .fa-trash-can, 
@@ -679,7 +679,7 @@ header .input-section {
 .modal-footer button {
     color: white;
     font-family: 'Poppins', sans-serif;
-    background: #ea9f5d;
+    background: #090909;
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -690,7 +690,7 @@ header .input-section {
 }
 
 .modal-footer button:hover {
-    background-color: rgb(185, 122, 67);
+    background-color: rgb(45, 45, 45);
 }
 
 /* Resetting the select tag */
@@ -725,7 +725,7 @@ select {
 .select::after {
     content: '\25BC';
     position: absolute;
-    background: #ea9f5d;
+    background: #0d0d0d;
     top: -5px;
     right: 0;
     padding: 1rem;
@@ -734,7 +734,7 @@ select {
 }
 
 .select:hover::after {
-    background-color: rgb(185, 122, 67);;
+    background-color: rgb(61, 61, 60);;
 }
 
 /* //WEATHER */
